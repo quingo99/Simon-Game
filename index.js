@@ -28,11 +28,11 @@ $(document).on("keypress", function(){
             playerPlaying = false;
             restart = false;
         }
-        else{
-            gamePattern = []
-            playerPlaying = true;
-            $("h1").text("Press a key to start");
-        }
+        
+        gamePattern = []
+        playerPlaying = true;
+        $("h1").text("Press a key to start");
+        
         
     }
         
@@ -45,15 +45,12 @@ $("div.btn").on("click", function(){
     console.log(gamePattern[count]);
     playerEffect();
     count++;
-    if(count == gamePattern.length){
+    if(count == gamePattern.length && count != 0){
         playerPlaying = true;
         $("h1").text("Press a key to move the next level");
 
     }
-    else{
-        playerPlaying = false;
-        restart = true;
-    }
+    
     
 
 });
@@ -116,6 +113,7 @@ function playerEffect(){
         $("h1").text("You lose at level " + (gamePattern.length + 1) + " press any key to reset");
         playerPlaying = false;
         restart = false;
+        count--;
     }
 
 }
